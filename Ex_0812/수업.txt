@@ -1,0 +1,74 @@
+JAVA 기본 제공 API ( 라이브러리 )
+
+equals()메서드
+기본 자료형의 데이터들의 동등 비교를 위해서 '==' 비교 연산자를 사용한다.
+하지만 객체를 동등비교 할 경우, 해당 객체의 값을 비교하는 것이 아니라, 객체가 메모리에 있는 위치를 비교하게 된다.
+객체의 데이터를 비교할 때는 equals()메서드를 override하여 사용한다.
+
+
+toString()메서드
+toString()메서드는 객체의 문자 정보를 반환해주는 메서드이다.
+print()문을 사용해 객체를 줄력할 경우, 해당 메서드가 자동으로 실행되어 객체의 정보를 반환해주고 출력이 된다.
+따라서 해당 메서드를 재정의해서 사용하면 원하는 객체의 정보를 쉽게 출력할 수 있다.
+Object obj = new Object();
+System.out.println(obj);
+Object객체를 만든 후에 출력문에 그대로 삽입하면 toString()메서드가 자동으로 실행된다.
+
+String클래스
+String클래스는 문자열을 처리하는 객체형 데이터 타입이다.
+일반적으로 기본 데이터 타입들과 마찬가지로 문자열 데이터를 담는 간단한 형식으로 사용하지만
+문자열츨 차리하기 위한 다양한 기능들을 가지고 있다.
+String객체는 한 번 생성되면 그 값을 읽기만 하고 변경할 수 없다.
+
+메서드					설명
+int length()	            		문자열의 길이를 반환
+char charAt(int index)			문자열을 하나의 단어 단위로 출력
+                                    		파라미터로는 추출할 문자의 위치를 받는다.
+int indexOf(String ch)			문자열에 포함된 단어 또는 문자열의 위치를 앞에서부터 검색했을 때
+int indexOf(int ch)				일치하는 위치의 인덱스 값을 반환(없을 경우 -1을 반환)
+String replace(변경할 문자, 변경 문자)		단어 또는 문장에 있는 특정 단어를 변경
+String substring(int beginIndex)		문자열을 원하는 위치에서 자를 때 사용
+					입력된 시작 위치부터 문자열의 마지막까지 반환
+String substring(int beginIndex,int endIndex)	문자열을 입력된 시작 위치부터 마지막 위치 전까지의 값을 리턴
+
+StringBuffer/StringBuilder
+append(String str)		기존 문자열 뒤에 더하여 반환
+delete(int start, int end)	시작 위치부터 끝 위치 전까지 삭제
+insert(int offset, String str)	시작 위치부터 문자열을 삽입
+reverse()			문자열을 반대로 출력
+
+Math클래스
+수학에서 자주 사용하는 상수들과 함수들을 미리 구현해 놓은 클래스로 자바에서 수학 계산이 필요할 때 주로 사용한다
+int abs(int a)
+double abs(double a)		절대값 계산
+
+double ceil(double a)		올림 계산
+double floor(double a)		버림 계산
+double round(double a)		반올림 계산
+
+int max(int a, int b)
+double max(double a, double b)	최대값 반환
+
+int min(int a, int b)
+double min(double a, double b)	최소값 반환
+
+double random()			난수를 반환
+
+Wrapper클래스
+프로그램에 따라 기본 타입의 데이터를 객체형으로 표현해야 하는 경우가 있다.
+이를 위해서 자바에서는 기본 자료형을 객체로 다루기 위한 클래스를 제공한다.
+이를 Wapper클래스라고 부르는데 기본형의 데이터 타입을 클래스로 포장했기 때문이다.
+
+
+Calendar클래스의 속성
+
+상수			의미
+YEAR,MONTH,DATE	연도,월(0-11),일(1-31)을 나타내는 상수
+DAY_OF_MONTH		현재 달의 몇 번째 날인지를 나타내는 상수(1-31)
+DAY_OF_WEEK		현재 주의 몇 번째 날인지를 나타내는 상수(1-7),1은 일요일을 의미
+HOUR,MINUTE		시(0-11),분(0-59)을 나타내는 상수
+SECOND,MILLISECOND	초(0-59)와 1/1000초를 나타내는 상수
+HOUR_OF_DAY		현재 날의 시각을 의미하는 상수(0-23)
+AM_PM			HOUR가 정오보다 이전이면 0을, 이후이면 1의 값을 가지는 상수
+WEEK_OF_MONTH		현재 달의 몇 번째 주인지를 나타내는 상수
+WEEK_OF_YEAR		현재 해의 몇 번째 주인지를 나타내는 상수
