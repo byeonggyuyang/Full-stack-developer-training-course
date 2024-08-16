@@ -9,3 +9,5 @@ Scanner 클래스 : https://hstory0208.tistory.com/entry/Java%EC%9E%90%EB%B0%94-
 Switch 기초 문제 연습 : https://moalgong.tistory.com/1
 
 %02d 해설 : https://fruitdev.tistory.com/177
+
+함수형 인터페이스 : https://bcp0109.tistory.com/313

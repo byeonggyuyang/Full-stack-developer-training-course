@@ -1,0 +1,71 @@
+컬렉션프레임워크와 인터페이스
+
+인터페이스 -> 서비스의 가이드라인을 제공 모든 추상메서드를 오버라이딩해야함
+
+default메서드
+인터페이스에 있는 구현메서드
+추상메서드와는 다름
+
+사용이유
+기존에 존재하던 인터페이스를 이용하여서 구현된 클래스를 만들고 사용하고 있는데
+인터페이스를 보완하는 과정에서 추가적으로 구현하거나 혹은 필수적으로 존재해야할 메소드가 있다면
+이미 구현한 클래스와 호환성이 떨어지게되므로 default메소드를 추가하게 된다면
+하위 호환성은 유지되고 인터페이스의 보완을 진행 할 수 있어서 사용됨 
+
+Java 에서 기본적으로 제공하는 Functional Interfaces
+함수형 인터페이스			Descripter	Method
+Predicate				T -> boolean	boolean test(T t)
+Consumer			T -> void		void accept(T t)
+Supplier				() -> T		T get()
+Function<T, R>			T -> R		R apply(T t)
+Comparator			(T, T) -> int	int compare(T o1, T o2)
+Runnable				() -> void	void run()
+Callable				() -> T		V call()
+
+두 개의 인자를 받는 Bi 인터페이스
+
+함수형 인터페이스	Descripter	Method
+BiPredicate	(T, U) -> boolean	boolean test(T t, U u)
+BiConsumer	(T, U) -> void	void accept(T t, U u)
+BiFunction	(T, U) -> R	R apply(T t, U u)
+
+람다식 합성 및 결합
+
+합성 : 여러 기능을 합치는것
+결합 : 논리연산자의 &&, ||, !을 뜻한다
+
+메소드				설명
+andThen()			f.andThen(g)  : f를 적용 후 g를 적용
+compose()			f.compose(g) : g를 적용 후 f를 적용
+identity()				항등 함수가 필요할 때 사용함(1을 넣으면 1이 나옴)
+
+결합
+Predicate를 and(), or(), negate()로 연결해서 하나의 새로운 Predicate로 결합할 수 있다.
+Predicate의 끝에 negate()를 붙이면 조건식 전체가 부정이 된다.
+static 메서드인 isEqual()은 두 대상을 비교하는 Predicate를 만들때 사용한다.
+
+메서드 참조
+하나의 메서드만 호출하는 람다식은 클래스이름::메서드이름 또는 참조변수::메서드이름으로 바꿀 수 있다.
+
+스레드 동기화(Synchronized)
+하나의 스레드가 영역에 진입할때 락을 걸어 다른 스레드가 수행되지 못하도록 하고 
+작업이 종료되면 락을 풀어 다른 스레드가 작업하도록 하는것
+
+메서드 동기화 처리
+메서드 이름 앞에 Synchronized키워드를 사용하면 해당 메서드 전체를 동기화 할 수 있다
+
+블록 동기화 처리
+전체 메서드가 아닌 특정 영역만 동기화 처리를 하는것
+
+스레드의 상태
+각 스레드의 상태는 스레드 클래스에 정의되어 있으며 .State타입으로 알 수 있다
+상태	상수		설명
+생성	NEW		스레드 객체가 생성되었지만 아직 start()메서드가 호출되지 않은 상태
+대기	RUNNABLE	실행 대기 또는 실행 상태로 언제든지 갈 수 있는 상태
+일시정지	WATING		다른 스레드가 종료될 때까지 대기하는 상태
+	TIMED_WATING	주어진 시간동안 대기하는 상태
+	BLOCKED		락이 풀릴 때까지 대기하는 상태
+종료	TERMINATED	수행을 종료한 상태
+
+wait()와 notify()
+wait()메서드는 스레드를 대기시키고, notify()메서드는 대기중인 스레드를 다시 동작시킬 때 사용한다.
