@@ -1,0 +1,9 @@
+열거형
+상수를 가지고 생성되는 객체들을 한곳에 모아둔 묶음
+
+getDeclaringClass()
+name() : 열거형 상수의 이름을 문자열로 반환
+ordinal() : 열거형 상수가 정의된 순서를 반환
+valueof("상수명") : String값을 enum에서 가져온다 값이 없으면 Exception을 살생시킨다.
+valueof(Item.class, "START); : 넘겨받은 class에서 String을 찾아, enum에서 가져온다.
+values() : 열거형 상수안에 들어있는 내용들을 enum타입의 배열로 반환
